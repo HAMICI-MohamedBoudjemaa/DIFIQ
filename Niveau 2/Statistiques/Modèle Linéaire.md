@@ -1,0 +1,2 @@
+- [[Régression Linéaire]]
+- [[Régression Logistique]]
