@@ -218,3 +218,139 @@ S_t &= f(t,W_t), \text{ où }f(t,x)= S_0e^{(\mu-\frac{\sigma^2}{2})t + \sigma x}
 ### Processus d'Itô
 C'est un processus $(X_t)_{t \ge 0}$ tel que $$X_t = x + \int_0^t \mu_s ds + \int_0^t \sigma_s dW_s$$où $$\left| \begin{array} xx \in \mathbb R \\ (\mu_s)_{s \ge 0} \text{ adapté tel que } \int_0^t|\mu_s|ds \gt +\infty \\ (\sigma_s)_{s \ge 0}\text{ adapté tel que }\mathbb E[\int_0^t |\sigma_s|ds] \gt +\infty \end{array}\right.$$
 On écrit aussi $$dX_t = \mu_t dt + \sigma_t dW_t$$
+### Variation quadratique :
+$$\langle W\rangle_t = \int_0^t \sigma_s^2ds = \underset{n \rightarrow +\infty }{lim}\sum_{i=0}^{n-1}(X_{t_{i+1} - X_{t_i}})^2$$En effet $$\begin{aligned}
+\sum_{i=0}^{n-1}(X_{t_{i+1}} - X_{t_i})^2 &= \sum_{i=0}^{n-1}\left(\sigma_{t_i}^2 (W_{t_{i+1}} - W_{t_i})^2 + o(\frac 1n)\right) \\
+&= \sum_{i=0}^{n-1}\sigma_{t_i}^2 (W_{t_{i+1}} - W_{t_i})^2 + \underset{=0}{\underline{n*o(\frac 1n)}} \\
+&= \int_0^t \sigma_s^2d\langle W\rangle s
+\end{aligned}$$
+### Formule d'Itô
+$$\forall f: [0,T] \times \mathbb R \rightarrow \mathbb R, \mathcal C^{1,2}$$
+$$\begin{aligned}
+f(t, X_t) &= f(0, X_0) + \int_0^t \partial_t f(s, X_s)ds + \int_0^t \partial_xf(s,X_s)\underset{=\mu_s ds + \sigma_s dW_s}{\underline{dX_s}} + \frac 12 \int_0^t \partial_{xx}f(s, X_s)\underset{\sigma_s^2ds}{\underline{d\langle X \rangle_s}} \\
+&= f(0,x) + \int_0^t \partial_xf(s, X_s)\sigma_sdW_s + \int_0^t\left(\partial_t f(s, X_s) + \mu_s \partial_xf(s, X_s) + \frac{\sigma_s^2}{2}\partial_{xx}f(s,X_s)\right)ds
+\end{aligned}$$
+*Exemple* : 
+- On note $\tilde X_t = e^{-rt} X_t$ et on a $$\begin{aligned}
+  d\tilde X_t &= df(t, X_t) \space où \space f(t,x)=e^{-rt}x \left| \begin{array}{}\partial_t f(t,x) = -rf(t,x) \\\partial_xf(t,x) = e^{-rt} \\\partial_{xx}f(t,x) = 0 \end{array} \right. \\
+  &=\partial_t f(t,X_t)dt + \partial_x f(t,X_t)dX_t + \frac 12 \partial_{xx} f(t,X_t)d\langle X\rangle_t \\
+  &= -r \tilde X_t dt + e^{-rt}dX_t + 0 \\
+  &= (\tilde \mu_t - r \tilde X_t)dt + \tilde \sigma_t dW_t
+  \end{aligned}$$
+- $$\begin{aligned}
+  df(t, S_t) &= \partial_tf(t,S_t)dt + \partial_xf(t,S_t)\underset{=\mu S_t dt + \sigma S_t dW_t}{\underline{dS_t}}+\frac 12 \partial_{xx}f(t,S_t) \underset{=\sigma^2 S_t^2 dt}{\underline{d\langle S \rangle_t}} \\
+  &= \partial_xf(t,S_t) \sigma S_t dW_t + \left( \partial_tf(t,S_t) + \mu S_t \partial_xf(t,S_t) + \frac{\sigma^2 S_t^2}{2}\partial_{xx}f(t,S_t) \right)dt
+  \end{aligned}$$
+# Couverture d'options
+## Portefeuille
+En temps discret, on avait $$\begin{aligned}
+V_{t+1} &= \phi_t S_{t+1} + (V_t - \phi_t S_t)(1+r) \\
+&=V_t + \underset{\text{Gain trading risqué}}{\underline{\phi_t(S_{t+1} - S_t)}} + \underset{\text{Gain trading sans risque}}{\underline{(V_t - \phi_tS_t)r}} \\
+\iff V_{t+1} - V_t &= \phi_t(S_{t+1} - S_t) + (V_t - \phi_tS_t)r
+\end{aligned}$$
+Par analogie, en temps continue, on a$$dV_t = \phi_tdS_t + (V_t - \phi_t S_t)rdt$$
+C'est une ***équation différentielle stochastique*** (**EDS**).
+Pour vérifier si c'est bien défini, on actualise le portefeuille : $$\begin{aligned}
+d \tilde V_t &= -r \tilde V_t dt + e^{-rt} dV_t \\
+&= -r\tilde V_t dt + e^{-rt} \phi_t dS_t + (\tilde V_t - \phi_t \tilde S_t)rdt \\
+&= \phi_t(-r \tilde S_t dt + e^{-rt}dS_t) \\
+&= \phi_t d \tilde S_t
+\end{aligned}$$Ainsi, on peut définir $$\begin{aligned}
+&\tilde V_t^{x,\phi} = x + \int_0^t \phi_s \underset{(\mu - r)\tilde S_s ds + \sigma \tilde S_s dWs}{\underline{d \tilde S_s}} \text{ et } V_t^{x, \phi} = e^{rt}\tilde V_t^{x,\phi} \\ 
+\text{où } &\left| \begin{array}{} x \in \mathbb R \text{ capital initial} \\ \phi \text{ stratégie admissible, i.e., adapté et }\mathbb E[\int_0^t |\phi_s S_s|^2ds] \le +\infty\end{array} \right.
+\end{aligned}$$
+***Remarque*** :
+Si $\phi = 0$, alors $V_t^{x, \phi} = e^{rt}x \rightarrow$ ~={red} **taux d'intérêt continu** =~ 
+## Options européennes
+On considère une option de payoff $g(S_t)$.
+Soit alors $v:[0,T] \times \mathbb R_+ \rightarrow \mathbb R$ une fonction satisfaisant l'équation aux dérivées partielles (EDP) suivante :$$\begin{cases}
+\partial_tv(t,x) + rx \partial_xv(t,x) + \frac{\sigma^2 x^2}{2} \partial_{xx}v(t,x)  - r v(t,x) = 0, \forall t \in [0,T[, x \gt 0 \\
+v(T,x) = g(x)
+\end{cases}$$Alors $$V_T^{p, \phi} = g(S_t)$$
+Où $\underset{\text{Prime de l'option}}{\underline{p = v(0,S_0)}}$ et $\underset{\text{Delta Hedging}}{\underline{\phi_t = \partial_x v(t,S_t)}}$ 
+Autrement dit, on peut répliquer l'option en utilisant la stratégie $\phi$ à partir d'un capital $p$
+### Preuve
+On applique la formule d'Itô à $(e^{-rt}v(t, S_t))_t$ : $$\begin{aligned}
+d(e^{-rt}v(t, S_t)) &= -re^{-rt}v(t, S_t)dt + e^{-rt}dv(t, S_t) \\
+&=e^{-rt}\partial_x v(t, S_t)\sigma S_t dW_t + e^{-rt}(\underset{\mu S_t \partial_x v(t, S_t) - rS_t\partial_x v(t, S_t)}{\underline{\partial_t v(t, S_t) + \mu S_t \partial_x v(t, S_t) + \frac{\sigma^2 x^2}{2}\partial_{xx} v(t, S_t) - r v(t, S_t)}})dt \\
+&=\partial_x v(t, S_t) \left( (\mu - r)\tilde S_t dt + \sigma \tilde S_t dW_t \right) \\
+&=\partial_x v(t, S_t)d \tilde S_t
+\end{aligned}$$
+On intègre entre $0$ et $T$ : $$\begin{aligned}
+e^{-rt}v(T,S_T) &= v(0, S_0) + \int_0^T \partial_x v(t, S_t)d \tilde S_t \\
+&= \tilde V_T^{p, \phi} \\
+\iff g(S_t) &= e^{rt} \tilde V_T^{p,\phi} = V_T^{p, \phi}
+\end{aligned}$$
+### Remarque
+Ce calcul nous dit aussi que $V_t^{p, \phi} = v(t, S_t)$, c'est la valeur de l'option au temps $t$ 
+## Options américaines
+On considère une option américaine de payoff $(g(S_t))_{t \in [0,T]}$ 
+Soit alors $v : [0,T] \times \mathbb R_+ \longrightarrow \mathbb R$ satisfaisant l'inéquation variationnelle suivante :$$\begin{cases}
+max \left( \underset{\le 0 \textcolor{yellow}{(1)}}{\underline{\mathcal Lv(t,x)}}, \underset{\le 0 \textcolor{yellow}{(1)}}{\underline{g(x) - v(t,x)}} \right) = 0, \forall t \in [0,T[, x \gt 0 \\
+v(T,x) = g(x) \space\space\space \textcolor{red}{\underset{\text{Continuation \textcolor{yellow}{(2)}}}{\underline{\begin{cases}\mathcal Lv(t,x) = 0 \\ v(t,x) \gt g(x) \end{cases}}}\space\space\space \underset{\text{Exercice \textcolor{yellow}{(3)}}}{\underline{\begin{cases}\mathcal Lv(t,x) \le 0 \\ v(t,x) = g(x) \end{cases}}}}
+\end{cases}$$Alors $$V_t^{p, \phi} \ge g(S_t), \forall t \in [0,T]$$et$$V_{\hat \tau}^{p, \phi} = g(S_t), \text{ où } \hat \tau = inf\{t \ge 0, v(t, S_t) = g(S_t)\}$$avec $p = v(0, S_0)$ et $\phi_t = \partial_x v(t, S_t)$ 
+Autrement dit, on peut se couvrir en utilisant la stratégie $\phi$ à partir du capital $p$ quelle que soit la date d'exercice, et cette couverture et parfaite si la stratégie d'exercice est $\hat \tau$ (**~={yellow}stratégie optimale de l'acheteur=~**)
+### Preuve
+On suppose $r=0$ pour simplifier.
+En particulier :$$
+\mathcal Lv(t,x) = \partial_tv(t,x) + \frac{\sigma^2 x^2}{2}\partial_{xx} v(t,x) \textcolor{green}{\le 0}
+$$
+Par Itô, $$\begin{aligned}
+\underset{\ge g(S_t) \textcolor{yellow}{\text{ par (1)}}}{\underline{v(t, S_t)}} &= v(0, S_0) + \int_0^t \partial_x v(s, S_s) \sigma S_s dW_s + \int_0^t \left( \underset{\le 0 \textcolor{yellow}{\text{ par (1)}}}{\underline{\partial_t v(s, S_s) + \frac{\sigma^2 S_s^2}{2}\partial_{xx} v(s, S_s)}} + \mu S_s \partial_x v(s, S_s) \right)ds \\
+&\le \underset{p}{\underline{v(0, S_0)}} + \int_0^t \underset{\phi_s}{\underline{\partial_x v(s, S_s)}} \space\space\underset{dS_s}{\underline{(\sigma S_s dW_s + \mu S_s ds)}} \\
+&=V_t^{p, \phi} \\
+\iff g(S_t) &\le V_t^{p,\phi}
+\end{aligned}$$On refait les calculs avec $\hat \tau$ :$$\begin{aligned}
+\underset{= g(S_t)}{\underline{v(\hat \tau, S_{\hat \tau})}} &= v(0, S_0) + \int_0^{\hat\tau}\partial_x v(t,S_t) \sigma S_t dW_t + \int_0^{\hat\tau} \left( \underset{= 0 \textcolor{yellow}{\text{ par (2) car } g(S_t) \lt v(t,S_t), \forall t \lt \hat\tau}}{\underline{\partial_t v(t, S_t) + \frac{\sigma^2 S_t^2}{2} \partial_{xx} v(t, S_t)}} + \mu S_t \partial_x v(t, S_t) \right)dt \\
+\iff g(S_{\hat\tau}) &= V_{\hat\tau}^{p, \phi}
+\end{aligned}$$
+### Remarque
+En général, la fonction valeur n'est pas de classe $\mathcal C^{1,2} \textcolor{yellow}{\text{[c.f. (3) si g n'est pas } \mathcal C^2]}$ mais on peut raisonner de manière analogue avec des notions de dérivées faibles.
+# Mesures martingales et pricing d'option
+## Changement de mesure
+### Définition
+On dit qu'une mesure de probabilité $\mathbb Q$ est équivalente à $\mathbb P$ lorsque $$\forall A \in \mathcal F,\begin{matrix} \space\space\space\space\space\mathbb P(A) \gt 0 \iff \mathbb Q(A) \gt 0 \\ \text{ou }\mathbb P(A) = 0 \iff \mathbb Q(A) = 0 \\ \text{ou }\mathbb P(A) = 1 \iff \mathbb Q(A) = 1 \end{matrix}
+$$
+### Propriété
+Si $\mathbb Q \sim \mathbb P$, alors $\exists H \gt 0$ v.a. tel que$$\mathbb E^{\mathbb Q}[X] = \mathbb E^{\mathbb P}[HX]$$On note $H = \frac{d \mathbb Q}{d \mathbb P}$
+Réciproquement, si $H$ est une v.a. $\gt 0$ tel que $\mathbb E^{\mathbb P}[H] = 1$, alors $\mathbb Q: A \in \mathcal F \rightarrow \mathbb E^{\mathbb P}[H \mathbb 1_A]$ est une mesure de probabilité équivalente à $\mathbb P$ et $\frac {d \mathbb Q}{d \mathbb P} = H$ 
+#### Preuve de la réciproque
+$$ \begin{aligned} \text{(i)}\;& Q(\Omega) = \mathbb{E}^{\mathbb{P}}\!\left[ H \mathbb{1}_{\Omega} \right] = \mathbb{E}^{\mathbb{P}}[H] = 1. \\[0.6em] \text{(ii)}\;& Q(A \cup B) = \mathbb{E}^{\mathbb{P}}\!\left[ H \mathbb{1}_{A \cup B} \right] = \mathbb{E}^{\mathbb{P}}\!\left[ H(\mathbb{1}_A + \mathbb{1}_B) \right] \quad \text{si } A \cap B = \varnothing \\[0.4em] &= \mathbb{E}^{\mathbb{P}}\!\left[ H \mathbb{1}_A \right] + \mathbb{E}^{\mathbb{P}}\!\left[ H \mathbb{1}_B \right] = Q(A) + Q(B). \\[0.6em] \text{(iii)}\;& \mathbb{P}(A) = 0 \;\iff\; \mathbb{1}_A = 0 \quad \mathbb{P}\text{-p.s.} \;\iff\; H \mathbb{1}_A = 0 \quad \mathbb{P}\text{-p.s.} \\[0.4em] &\iff\; \mathbb{E}^{\mathbb{P}}\!\left[ H \mathbb{1}_A \right] = 0 \;\iff\; Q(A) = 0. \end{aligned} $$
+
+### Théorème de Girsanov
+Soient $\lambda \gt 0$ et $$H = e^{-\frac 12 \lambda^2 T +\lambda W_T}$$ Alors le processus $$ W_t^{\mathbb Q} = W_t - \lambda t, t \in [0,T] $$est un MB sous $\mathbb Q$ définie par $\frac {d \mathbb Q}{d \mathbb P} = H$ 
+#### Remarque
+On a bien $H \gt 0$ et $$\mathbb E^{\mathbb P}[H] = e^{- \frac{\lambda^2}{2}T} \mathbb E[e^{\lambda W_T}] = 1 $$
+#### Preuve
+Il est clair que $W_0^{\mathbb Q} = 0$ et $t \rightarrow W_t^{\mathbb Q}$ est continue
+Il reste à montrer que $\forall 0 \le r \le s \le t \le T$, $$\mathbb E^{\mathbb Q}[g(W_r^{\mathbb Q})h(W_t^{\mathbb Q} - W_s^{\mathbb Q})] = \int \frac {e^{-\frac {x^2}{2r}}}{\sqrt{2 \pi r}} g(x)dx \int \frac {e^{-\frac {y^2}{2(t-s)}}}{\sqrt{2 \pi (t-s)}} h(y)dy $$ qui nous dit que, sous $\mathbb Q$ $$ W_r^{\mathbb Q} \sim \mathcal N(0,r), W_t^{\mathbb Q}-W_s^{\mathbb Q} \sim \mathcal N(0,t-s), W_r^{\mathbb Q} \perp\!\!\!\perp W_t^{\mathbb Q}-W_s^{\mathbb Q} $$
+$$ \begin{aligned} \mathbb{E}^{\mathbb{Q}}\!\big[g(W_r^{\mathbb{Q}})\,h(W_t^{\mathbb{Q}}-W_s^{\mathbb{Q}})\big] &= \mathbb{E}^{\mathbb{P}}\!\Big[e^{-\frac12\lambda^2T+\lambda W_T}\, g(W_r^{\mathbb{Q}})\,h(W_t^{\mathbb{Q}}-W_s^{\mathbb{Q}})\Big] \\[0.6em] &= \mathbb{E}^{\mathbb{P}}\!\Big[ e^{-\frac12\lambda^2 r+\lambda W_r}\, g(W_r^{\mathbb Q})\, e^{-\frac12\lambda^2(s-r)+\lambda(W_s-W_r)} \\ &\hspace{4.2em}\times e^{-\frac12\lambda^2(t-s)+\lambda(W_t-W_s)}\, h(W_t^{\mathbb Q}-W_s^{\mathbb Q}) \\ &\hspace{4.2em}\times e^{-\frac12\lambda^2(T-t)+\lambda(W_T-W_t)} \Big] \\[0.8em] &= \mathbb{E}^{\mathbb{P}}\!\big[e^{-\frac12\lambda^2 r+\lambda W_r}\, g(W_r-\lambda r)\big]\, \mathbb{E}^{\mathbb{P}}\!\big[e^{-\frac12\lambda^2(t-s)+\lambda(W_t-W_s)} \\ &\hspace{7.5em}\times h(W_t-W_s-\lambda(t-s))\big] \\[0.6em] &\hspace{1em}\times \mathbb{E}^{\mathbb{P}}\!\big[e^{-\frac12\lambda^2(s-r)+\lambda(W_s-W_r)}\big]\, \mathbb{E}^{\mathbb{P}}\!\big[e^{-\frac12\lambda^2(T-t)+\lambda(W_T-W_t)}\big] \\[0.8em] &= \mathbb{E}^{\mathbb{P}}\!\big[e^{-\frac12\lambda^2 r+\lambda W_r}\, g(W_r-\lambda r)\big]\, \mathbb{E}^{\mathbb{P}}\!\big[e^{-\frac12\lambda^2(t-s)+\lambda(W_t-W_s)} \\ &\hspace{7.5em}\times h(W_t-W_s-\lambda(t-s))\big] \\[0.8em] &= \int_{\mathbb{R}} e^{-\frac12\lambda^2 r+\lambda x}\, g(x-\lambda r)\,\frac{e^{-\frac{x^2}{2r}}}{\sqrt{2\pi r}}\,dx \\[0.6em] &= \int_{\mathbb{R}} g(x-\lambda r)\, \frac{e^{-\frac{(x-\lambda r)^2}{2r}}}{\sqrt{2\pi r}}\,dx \\[0.6em] &= \int_{\mathbb{R}} g(y)\, \frac{e^{-\frac{y^2}{2r}}}{\sqrt{2\pi r}}\,dy . \end{aligned} $$
+## Probabilité risque neutre
+On **construit** la ***probabilité risque neutre*** dans le **modèle de BS** par **Girsanov** en prenant $$\lambda = \frac{r-\mu}{\sigma}$$En effet $$\left. \begin{aligned}
+S_t &= S_0 e^{(\mu - \frac{\sigma^2}{2})t + \sigma W_t} \\
+&= S_0 e^{(\enclose{updiagonalstrike}{\mu} - \frac{\sigma^2}{2})t + \sigma(W_t^{\mathbb Q} + \frac{r - \enclose{updiagonalstrike}{\mu}}{\sigma}t)} \\
+&=S_0 e^{(r - \frac{\sigma^2}{2})t + \sigma W_t^{\mathbb Q}} \\
+\implies \tilde S_t &= e^{-rt}S_t \\
+&=S_0e^{-\frac{\sigma^2}{2}t + \sigma W_t^{\mathbb Q}}
+\end{aligned}\right|
+\begin{aligned}
+dS_t &= \mu S_t dt + \sigma S_t \underset{dW_t^{\mathbb Q} + \frac{r -\mu}{\sigma}dt}{\underline{dW_t}} \\
+&=rS_t dt + \sigma S_t dW_t^{\mathbb Q} \\
+\implies d \tilde S_t &=-r \tilde S_t dt + \underset{r \tilde S_t dt + \sigma \tilde S_t dW_t^{\mathbb Q}}{\underline{e^{-rt}dS_t}} \\
+&=\sigma \tilde S_t dW_t^{\mathbb Q}
+\end{aligned}$$Donc $(\tilde S_t)$ martingale sous $\mathbb Q$
+### Remarque
+En particulier $$ \mathbb E^{\mathbb Q}[S_t] = e^{rt}\mathbb E^{\mathbb Q}[\tilde S_t] =e^{rt}\tilde S_0 = e^{rt}S_0 $$i.e.,**~={yellow}les rendements de l'actif risqué sont identiques au placement sans-risques=~**
+Plus généralement, $(\tilde V_t^{x, \phi})_{t \in [0,T]}$ est une martingale sous $\mathbb Q$. En effet $$ \tilde V_t^{x, \phi} = x + \int_0^t \phi_s d \tilde S_s = x + \int_0^t \phi_s \sigma \tilde S_s d W_s^{\mathbb Q} $$
+### Application
+On considère un payoff $G=g((S_t)_{t \le T}), \mathcal F_T-mesurable$ et on suppose que $G$ est réplicable, i.e., $\exists p \in \mathbb R$ et $\phi$ stratégie admissible tel que $$ G = V_T^{p, \phi} $$alors $$ p = \mathbb E^{\mathbb Q}[\tilde G] $$En effet, $$ \mathbb E^{\mathbb Q}[\tilde G] = \mathbb E^{\mathbb Q}[\tilde V_T^{p,\phi}] = \tilde V_0^{p, \phi} = p $$En particulier, si $G = g(S_t)$, on a vu que l'option est réplicable (par les EDP) et donc $$\begin{aligned}p = \mathbb E^{\mathbb Q}[e^{-rt}g(S_t)] \color{red}\underset{\text{forume de Feynman-Kac}}{=}v(0,S_0)  &\color{green}\longrightarrow \mathbb E^{\mathbb Q}[e^{-rT}g(S_T) | \mathcal F_t] = e^{-rT}v(t,S_t) \\&\color{green}\iff v(t,S_t) = E^{\mathbb Q}[e^{-r(T-t)}g(S_T) | \mathcal F_t]\end{aligned} $$
+Pour pricer, nous utilisons du **Monte Carlo**
+## Représentation Martingale
+On peut montrer que toute martingale $(M_t)_{t \ge 0}$ par rapport à la filtration du MB est de la forme $$M_t = M_0 + \int_0^t \psi_s dW_s$$où $(\psi_s)$ adapté.
+On en déduit que tout payoff $G, \mathcal F_t-mesurable$ satisfait $$\begin{aligned}
+\tilde G &= \mathbb E^{\mathbb Q}[\tilde G] + \int_0^T \psi_s dW_s^{\mathbb Q} \\
+&=\mathbb E^{\mathbb Q}[\tilde G] + \int_0^T \frac{\psi_s}{\sigma \tilde S_s}\underset{d \tilde S_s}{\underline{\sigma \tilde S_sdW_s^{\mathbb Q}}}\\
+&=V_T^{p, \phi} \text{ où }\left|\begin{matrix}p = \mathbb E^{\mathbb Q}[\tilde G] \\ \phi_s = \frac{\psi_s}{\sigma \tilde S_s} \end{matrix} \right.
+\end{aligned}$$On en conclut que le marché est complet et les prix des options est $$p = \mathbb E^{\mathbb Q}[\tilde G]$$Mais cela ne nous dit pas comment calculer la stratégie de couverture $\phi$ 
+### Remarque
+On peut étendre ces arguments pour les options américaines et prouver l'existence d'une stratégie $\phi$ telle que $$V_t^{p, \phi} \ge G_t, \forall t \in [0,T]$$où $$p = \underset{\tau \text{ temps d'arrêt }}{sup} \mathbb E^{\mathbb Q}[\tilde G_\tau] = \mathbb E^{\mathbb Q}[\tilde G_{\hat\tau}]$$avec $$\hat\tau = inf\{t \ge 0, V_t^{p, \phi} = G_t\}$$
