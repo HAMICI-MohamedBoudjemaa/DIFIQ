@@ -198,6 +198,26 @@
           "x": -1402.6025068550991,
           "y": 354.6191849516388
         },
+        "Niveau 2/Calcul Stochastique/Modèle Binomial à plusieurs périodes.md": {
+          "x": -2327.5549734800684,
+          "y": 393.34247237418685
+        },
+        "Niveau 2/Calcul Stochastique/Modèle binomial à 1 période.md": {
+          "x": -2367.990795577192,
+          "y": 196.28518288469698
+        },
+        "Niveau 2/Calcul Stochastique/Modèle de Black-Scholes.md": {
+          "x": -1825.9178605093284,
+          "y": 693.6794860120426
+        },
+        "Niveau 2/Calcul Stochastique/Modèles à temps continu.md": {
+          "x": -1524.1318359375,
+          "y": 511.9506530761719
+        },
+        "Niveau 2/Calcul Stochastique/Modèles à temps discret.md": {
+          "x": -2135.0890299644534,
+          "y": 280.14037076543195
+        },
         "Niveau 2/Modélisation Avancée, Produits et Risques Exotiques/Modèles d'évaluation et de couverture des produits exotiques.md": {
           "x": 2110.7021484375,
           "y": 266.2078857421875
@@ -302,25 +322,9 @@
           "x": 1298.7708740234375,
           "y": -2491.45166015625
         },
-        "Niveau 2/Calcul Stochastique/Modèles à temps discret.md": {
-          "x": -2135.0890299644534,
-          "y": 280.14037076543195
-        },
-        "Niveau 2/Calcul Stochastique/Modèle binomial à 1 période.md": {
-          "x": -2367.990795577192,
-          "y": 196.28518288469698
-        },
-        "Niveau 2/Calcul Stochastique/Modèle Binomial à plusieurs périodes.md": {
-          "x": -2327.5549734800684,
-          "y": 393.34247237418685
-        },
-        "Modèles à temps continu.md": {
-          "x": -1972.7127685546875,
-          "y": 522.8365478515625
-        },
-        "Modèle de Black-Scholes.md": {
-          "x": -2159.6572265625,
-          "y": 620.9690551757812
+        "Modèles Multivariées.md": {
+          "x": -1557.4771728515625,
+          "y": 758.820556640625
         }
       },
       "hiddenLegendRows": [],
