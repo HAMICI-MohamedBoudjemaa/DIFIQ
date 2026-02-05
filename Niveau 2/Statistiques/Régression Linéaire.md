@@ -78,8 +78,8 @@ On considère comme estimateur de $_sigma^2$ la **variance résiduelle** $$\hat 
 		- $y_i - \hat y_i$ est la variation non expliquée par le modèle
 - On peut démontrer la formule de décomposition de la variance
 ### Décomposition de la variance (*ANOVA*)
-- La formule d'***ANOVA*** (ANalysis Of VAriance) est : $$\begin{aligned}
-&SCT &= &SCE &+ &SCR \\
+- La formule d'***~={red}ANOVA=~*** (ANalysis Of VAriance) est : $$\begin{aligned}
+&\textcolor{red}{SCT} &= &\textcolor{red}{SCE} &+ &\textcolor{red}{SCR} \\
 &{\sum_{i=1}^n(y_i - \bar y)^2} &= &{\sum_{i=1}^n(\hat y_i - \bar y)^2} &+ &{\sum_{i=1}^n(y_i - \hat y_i)^2}
 \end{aligned}$$
 - **SCT** (*Somme des Carrés Totale*) traduit la variance totale

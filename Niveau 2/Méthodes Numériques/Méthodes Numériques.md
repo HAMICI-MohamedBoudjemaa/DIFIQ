@@ -2,3 +2,4 @@
 [[Réduction de la variance]]
 [[Simulation de processus stochastiques]]
 [[Méthodes de différences finies]]
+[[Résumé méthodes numériques]]

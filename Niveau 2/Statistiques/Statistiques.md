@@ -1,5 +1,6 @@
 [[Introduction]]
 [[Analyse Exploratoire]]
 [[Modèle Linéaire]]
-[[Méthodes de Régularisation]]
-[[Modèles GARCH]]
+[[Séries temporelles]]
+[[Statistiques inférentielles]]
+[[Résumé Stats]]

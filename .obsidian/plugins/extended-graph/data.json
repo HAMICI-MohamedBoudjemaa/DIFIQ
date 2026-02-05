@@ -97,7 +97,7 @@
     "repelStrength": 0,
     "linkStrength": 0,
     "linkDistance": 30,
-    "scale": 0.8835606993074463,
+    "scale": 0.22869966409591908,
     "close": true
   },
   "openInNewTab": false,
@@ -210,6 +210,10 @@
           "x": -1825.9178605093284,
           "y": 693.6794860120426
         },
+        "Niveau 2/Calcul Stochastique/Modèles Multivariées.md": {
+          "x": -1588.5445556640625,
+          "y": 827.244384765625
+        },
         "Niveau 2/Calcul Stochastique/Modèles à temps continu.md": {
           "x": -1524.1318359375,
           "y": 511.9506530761719
@@ -249,6 +253,10 @@
         "Niveau 2/Méthodes Numériques/Réduction de la variance.md": {
           "x": -736.76809380244,
           "y": 949.5956307587155
+        },
+        "Niveau 2/Méthodes Numériques/Résumé méthodes numériques.md": {
+          "x": -151.2740020751953,
+          "y": 744.7738647460938
         },
         "Niveau 2/Méthodes Numériques/Simulation de processus stochastiques.md": {
           "x": -437.84780129743535,
@@ -299,12 +307,8 @@
           "y": 1076.70681657503
         },
         "Niveau 2/Statistiques/Modèles GARCH.md": {
-          "x": 1239.42822265625,
-          "y": 1092.545166015625
-        },
-        "Niveau 2/Statistiques/Méthodes de Régularisation.md": {
-          "x": 948.1217041015625,
-          "y": 1104.83837890625
+          "x": 1499.8821937482467,
+          "y": 1188.9481031782905
         },
         "Niveau 2/Statistiques/Régression Linéaire.md": {
           "x": 553.74204624137,
@@ -314,17 +318,29 @@
           "x": 767.7339015531443,
           "y": 1301.0011095143195
         },
+        "Niveau 2/Statistiques/Régression régularisée.md": {
+          "x": 1002.7781372070312,
+          "y": 1252.648193359375
+        },
+        "Niveau 2/Statistiques/Résumé Stats.md": {
+          "x": 1306.8165283203125,
+          "y": 776.03466796875
+        },
         "Niveau 2/Statistiques/Statistiques.md": {
           "x": 607.9225484345036,
           "y": 760.8280631895484
+        },
+        "Niveau 2/Statistiques/Séries temporelles.md": {
+          "x": 1157.8878173828125,
+          "y": 1031.38671875
         },
         "Niveau 3/Niveau 3.md": {
           "x": 1298.7708740234375,
           "y": -2491.45166015625
         },
-        "Modèles Multivariées.md": {
-          "x": -1557.4771728515625,
-          "y": 758.820556640625
+        "Niveau 2/Statistiques/Statistiques inférentielles.md": {
+          "x": 1237.333251953125,
+          "y": 939.8735961914062
         }
       },
       "hiddenLegendRows": [],

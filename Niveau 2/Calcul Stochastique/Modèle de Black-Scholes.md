@@ -213,7 +213,8 @@ S_t &= f(t,W_t), \text{ où }f(t,x)= S_0e^{(\mu-\frac{\sigma^2}{2})t + \sigma x}
 &= f(0, W_0) + \int_0^t\partial_tf(s,W_s) ds +\int_0^t \partial_xf(s,W_s)dW_s + \frac 12\int_0^t\partial_{xx}f(s,W_s)d\langle W\rangle_s \\
 &= S_0 + \int_0^t(\mu - \enclose{updiagonalstrike}{\frac {\sigma^2}{2}})S_sds + \int_0^t\sigma S_s dW_s + \frac 12 \int_0^t \enclose{updiagonalstrike}{\sigma^2}S_s ds \\
 &= S_0 + \int_0^t \mu S_s ds + \int_0^t\sigma S_s dW_s
-\end{aligned}$$Autrement dit, $$\underset{\text{Equation Différentielle Stochastique}}{\underline{dS_t = \mu S_t dt + \sigma S_t dW_t}}$$
+\end{aligned}$$Autrement dit,~={yellow} $$\underset{\text{Equation Différentielle Stochastique}}{\underline{dS_t = \mu S_t dt + \sigma S_t dW_t}}$$ 
+=~
 ## Cas général
 ### Processus d'Itô
 C'est un processus $(X_t)_{t \ge 0}$ tel que $$X_t = x + \int_0^t \mu_s ds + \int_0^t \sigma_s dW_s$$où $$\left| \begin{array} xx \in \mathbb R \\ (\mu_s)_{s \ge 0} \text{ adapté tel que } \int_0^t|\mu_s|ds \gt +\infty \\ (\sigma_s)_{s \ge 0}\text{ adapté tel que }\mathbb E[\int_0^t |\sigma_s|ds] \gt +\infty \end{array}\right.$$
