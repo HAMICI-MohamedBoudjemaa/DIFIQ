@@ -1,5 +1,5 @@
-[[Méthodes de Monte Carlo et Simulation de Variables Aléatoires]]
-[[Réduction de la variance]]
+[[Méthodes de Monte Carlo et réduction de la variance]]
+[[Simulation de variables aléatoires]]
 [[Simulation de processus stochastiques]]
 [[Méthodes de différences finies]]
 [[Résumé méthodes numériques]]
