@@ -1,2 +1,6 @@
+[[Fondamentaux des mathématiques pour la finance]]
 [[Produits de taux]]
 [[Pricing & Risk management des options]]
+[[Introduction à la gestion des risques]]
+[[Produits dérivés de change et de crédit]]
+[[Gestion de portefeuille quantitative]]

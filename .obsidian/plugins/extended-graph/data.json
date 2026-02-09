@@ -158,13 +158,37 @@
           "x": -63.5995114448242,
           "y": -1504.1768377819412
         },
+        "Niveau 1/Fondamentaux des mathématiques pour la finance/Approximation polynomiale.md": {
+          "x": -3826.144287109375,
+          "y": -2596.453369140625
+        },
+        "Niveau 1/Fondamentaux des mathématiques pour la finance/Calcul intégral.md": {
+          "x": -4117.55859375,
+          "y": -2104.481201171875
+        },
+        "Niveau 1/Fondamentaux des mathématiques pour la finance/Dérivation.md": {
+          "x": -3965.7216796875,
+          "y": -1715.769775390625
+        },
+        "Niveau 1/Fondamentaux des mathématiques pour la finance/Fondamentaux des mathématiques pour la finance.md": {
+          "x": -3644.03466796875,
+          "y": -2159.231689453125
+        },
+        "Niveau 1/Fondamentaux des mathématiques pour la finance/Optimisation.md": {
+          "x": -4099.2763671875,
+          "y": -1964.7381591796875
+        },
+        "Niveau 1/Fondamentaux des mathématiques pour la finance/Probabilité.md": {
+          "x": -4062.92333984375,
+          "y": -2389.949951171875
+        },
         "Niveau 1/Niveau 1.md": {
           "x": -1795.0447998046875,
           "y": -2382.906005859375
         },
         "Niveau 1/Pricing & Risk management des options/Pricing & Risk management des options.md": {
-          "x": -2671.9071215550593,
-          "y": -1881.273080544985
+          "x": -3352.489438535399,
+          "y": -3209.6677529816207
         },
         "Niveau 1/Produits de taux/Calcul Actuariel.md": {
           "x": -1092.38330078125,
@@ -242,17 +266,13 @@
           "x": -619.1408588203153,
           "y": 517.9568559811556
         },
-        "Niveau 2/Méthodes Numériques/Méthodes de Monte Carlo et Simulation de Variables Aléatoires.md": {
-          "x": -1004.7831043369947,
-          "y": 936.6803920156013
+        "Niveau 2/Méthodes Numériques/Méthodes de Monte Carlo et réduction de la variance.md": {
+          "x": -887.5184326171875,
+          "y": 1011.691162109375
         },
         "Niveau 2/Méthodes Numériques/Méthodes de différences finies.md": {
           "x": -246.39577816467136,
           "y": 952.5332310102748
-        },
-        "Niveau 2/Méthodes Numériques/Réduction de la variance.md": {
-          "x": -736.76809380244,
-          "y": 949.5956307587155
         },
         "Niveau 2/Méthodes Numériques/Résumé méthodes numériques.md": {
           "x": -151.2740020751953,
@@ -261,6 +281,10 @@
         "Niveau 2/Méthodes Numériques/Simulation de processus stochastiques.md": {
           "x": -437.84780129743535,
           "y": 981.9069660145401
+        },
+        "Niveau 2/Méthodes Numériques/Simulation de variables aléatoires.md": {
+          "x": -688.3109741210938,
+          "y": 1031.49853515625
         },
         "Niveau 2/Niveau 2.md": {
           "x": -24.52836799621582,
@@ -326,6 +350,10 @@
           "x": 1306.8165283203125,
           "y": 776.03466796875
         },
+        "Niveau 2/Statistiques/Statistiques inférentielles.md": {
+          "x": 1237.333251953125,
+          "y": 939.8735961914062
+        },
         "Niveau 2/Statistiques/Statistiques.md": {
           "x": 607.9225484345036,
           "y": 760.8280631895484
@@ -338,9 +366,53 @@
           "x": 1298.7708740234375,
           "y": -2491.45166015625
         },
-        "Niveau 2/Statistiques/Statistiques inférentielles.md": {
-          "x": 1237.333251953125,
-          "y": 939.8735961914062
+        "Niveau 1/Pricing & Risk management des options/Evaluer les options.md": {
+          "x": -3773.43701171875,
+          "y": -3448.6015625
+        },
+        "Niveau 1/Pricing & Risk management des options/Options - Généralités.md": {
+          "x": -3900.993408203125,
+          "y": -3210.37109375
+        },
+        "Niveau 1/Pricing & Risk management des options/Couvrir les options.md": {
+          "x": -3562.117431640625,
+          "y": -3603.551513671875
+        },
+        "Niveau 1/Pricing & Risk management des options/Pour aller plus loin.md": {
+          "x": -3317.3466796875,
+          "y": -3698.829833984375
+        },
+        "Niveau 1/Introduction à la gestion des risques/Introduction à la gestion des risques.md": {
+          "x": -2880.19189453125,
+          "y": -957.6677856445312
+        },
+        "Niveau 1/Introduction à la gestion des risques/Risk Management dans la Banque.md": {
+          "x": -3172.9664286301777,
+          "y": -591.3140424273918
+        },
+        "Niveau 1/Introduction à la gestion des risques/Risk Management en Asset Management.md": {
+          "x": -3274.388114080885,
+          "y": -878.926294686027
+        },
+        "Niveau 1/Introduction à la gestion des risques/Risk Management de Marché.md": {
+          "x": -3288.0890136111293,
+          "y": -1224.9889731073372
+        },
+        "Niveau 1/Produits dérivés de change et de crédit/Produits dérivés de change et de crédit.md": {
+          "x": -1883.7303466796875,
+          "y": -807.8988647460938
+        },
+        "Niveau 1/Produits dérivés de change et de crédit/Dérivés de crédit.md": {
+          "x": -2252.11279296875,
+          "y": -517.0648193359375
+        },
+        "Niveau 1/Produits dérivés de change et de crédit/Dérivés de change.md": {
+          "x": -1814.3189697265625,
+          "y": -447.7933349609375
+        },
+        "Niveau 1/Gestion de portefeuille quantitative/Gestion de portefeuille quantitative.md": {
+          "x": -506.22467041015625,
+          "y": -3220.112060546875
         }
       },
       "hiddenLegendRows": [],
